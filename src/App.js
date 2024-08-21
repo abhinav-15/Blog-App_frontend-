@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import ListView from './components/ListView';
+import DetailView from './components/DetailView';
+import Login from './components/Login';
+import CreatePost from './components/CreatePost';
+import EditPost from './components/EditPost';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [token, setToken] = useState(null);
+    return (
+        <Router>
+            <Routes>
+                
+            <Route path="/" element={<ListView token={token} />} />
+                <Route path="/login" element={<Login setToken={setToken} />} />
+                <Route path="/create" element={<CreatePost token={token} />} />
+                <Route path="/posts/:id" element={<DetailView token={token} />} />
+                <Route path="/posts/:id/edit" element={<EditPost token={token} />} />  {/* Route for editing */}
+            </Routes>
+        </Router>
+    );
 }
 
 export default App;
