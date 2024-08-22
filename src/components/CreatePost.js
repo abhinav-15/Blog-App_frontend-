@@ -12,7 +12,7 @@ const CreatePost = ({ token }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('blog-app-frontend-vert.vercel.app/api/posts', { title, content }, {
+      await axios.post('https://blog-app-iota-silk.vercel.app/api/posts', { title, content }, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
