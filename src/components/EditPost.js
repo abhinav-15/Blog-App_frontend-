@@ -27,7 +27,7 @@ const EditPost = ({ token }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`https://blog-app-iota-silk.vercel.app//api/posts/${id}`, { title, content }, {
+      await axios.put(`https://blog-app-iota-silk.vercel.app/api/posts/${id}`, { title, content }, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
