@@ -6,7 +6,7 @@ body {
 }
 
 .list-container {
-  display: flex;
+  
   min-height: 100vh;
 }
 
@@ -20,88 +20,54 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  position: fixed; /* Make the sidebar fixed */
+  position: fixed;
   top: 0;
   left: 0;
-  height: 100%; /* Full height */
-  z-index: 1000; /* Ensure it's above other content */
+  height: 100%;
+  z-index: 1000;
 }
 
-.sidebar nav ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.sidebar nav ul li {
-  margin: 20px 0;
-}
-
-.sidebar nav ul li a {
-  color: #555;
-  text-decoration: none;
-  display: block;
-  padding: 10px;
-}
-
-.sidebar nav ul li a.active {
-  color: #6558f5;
+/* Main Content */
+.content {
+  margin-left: 60px;
+  padding: 2rem;
+  width: calc(100% - 60px);
+  box-sizing: border-box;
 }
 
 /* Header */
 .list-header {
+  max-height: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
   background-color: #fff;
   border-bottom: 1px solid #ccc;
-  width: calc(100% - 60px); /* Adjust for sidebar width */
-  position: sticky; /* Make the header sticky */
+  width: 100%;
+  position: sticky;
   top: 0;
-  z-index: 1000; /* Ensure it's above other content */
+  z-index: 999;
 }
 
-.list-header3 {
+.list-header h1 {
   font-size: 24px;
   font-weight: bold;
   margin: 0;
 }
 
-.login-button, .create-post-button {
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  text-decoration: none;
-  color: white;
-}
-
-.login-button {
-  background-color: #6558f5;
-}
-
-.create-post-button {
-  background-color: #28a745;
-}
-
-/* Main Content */
-.content {
-  margin-left: 60px; /* Adjust for sidebar width */
-  padding: 2rem;
-  width: calc(100% - 60px); /* Adjust for sidebar width */
-  box-sizing: border-box; /* Include padding in width calculation */
-}
-
 /* Post List */
 .post-list {
-  padding: 2rem;
+  padding-top: 1rem;
 }
 
+/* Post Card */
 .post-card {
   background-color: #f0f4ff;
+  align-items: center;
   border-radius: 10px;
   padding: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1rem; /* Space between individual post cards */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -118,4 +84,22 @@ body {
   color: #6558f5;
   text-decoration: none;
   font-weight: bold;
+}
+
+/* Button Styles */
+.login-button, .create-post-button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+}
+
+.login-button {
+  background-color: #6558f5;
+}
+
+.create-post-button {
+  background-color: #28a745;
 }

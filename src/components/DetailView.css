@@ -7,9 +7,8 @@ body {
 }
 
 .detail-container {
-  display: flex;
   min-height: 100vh;
-  background-color: #fff;
+  
 }
 
 /* Sidebar */
@@ -50,13 +49,16 @@ body {
 
 /* Header */
 .detail-header {
+  max-height: 10px;
   display: flex;
-  width: 100%; /* Ensures the header spans the full width of the browser tab */
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
   background-color: #fff;
   border-bottom: 1px solid #ccc;
+  width: 100%;
+  position: sticky;
+  z-index: 999;
 }
 
 .detail-header3 {

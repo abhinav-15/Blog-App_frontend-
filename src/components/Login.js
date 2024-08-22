@@ -1,22 +1,24 @@
-// src/components/Login.js
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import './Login.css';  // Import the CSS file
 
 const Login = ({ setToken }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState(''); // Declare setError with useState
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError(''); // Clear any previous errors
     try {
-      const response = await axios.post('http://localhost:5001/login', { username, password });
+      const response = await axios.post('http://localhost:5001/api/auth/login', { username, password });
       setToken(response.data.token); // Store token in state or localStorage
-      navigate('/'); // Redirect to create blog post page
+      navigate('/'); // Redirect to home page or another page
     } catch (error) {
       console.error('Failed to login', error);
+      setError('Invalid username or password'); // Set error message
     }
   };
 
@@ -41,8 +43,10 @@ const Login = ({ setToken }) => {
             className="login-input"
             required
           />
+          {error && <p className="login-error">{error}</p>}  {/* Display error message */}
           <button type="submit" className="login-button">Login</button>
         </form>
+        <p>Don't have an account? <Link to="/signup">Sign up here</Link></p> {/* Link to Signup */}
       </div>
     </div>
   );

@@ -19,42 +19,44 @@ const ListView = ({ token }) => {
   }, []);
 
   return (
+    
     <div className="list-container">
-      
-      {/* Sidebar */}
-      <aside className="sidebar">
-        <nav>
-          <ul>
-            <li><Link to="/" className="active"><i className="home-icon"></i> Home</Link></li>
-            <li><Link to="/resources"><i className="resources-icon"></i> Resources</Link></li>
-            <li><Link to="/posts"><i className="posts-icon"></i> Posts</Link></li>
-            <li><Link to="/settings"><i className="settings-icon"></i> Settings</Link></li>
-          </ul>
-        </nav>
-      </aside>
+    <header className="list-header">
+    <h1 className="list-header3">Blog Posts</h1>
+    {!token ? (
+      <Link to="/login" className="login-button">Login</Link>
+    ) : (
+      <Link to="/create" className="create-post-button">Create Post</Link>
+    )}
+  </header>
+  {/* Sidebar */}
+  <aside className="sidebar">
+    <nav>
+      <ul>
+        <li><Link to="/" className="active">Home</Link></li>
+        <li><Link to="/resources">Resources</Link></li>
+        <li><Link to="/posts">Posts</Link></li>
+        <li><Link to="/settings">Settings</Link></li>
+      </ul>
+    </nav>
+  </aside>
 
-      {/* Main Content */}
-      <div className="content">
-        <header className="list-header">
-          <h1 className="list-header3">Blog Posts</h1>
-          {!token ? (
-            <Link to="/login" className="login-button">Login</Link>
-          ) : (
-            <Link to="/create" className="create-post-button">Create Post</Link>
-          )}
-        </header>
+  {/* Main Content */}
+  
 
-        <div className="post-list">
-          {posts.map(post => (
-            <div key={post._id} className="post-card">
-              <h3>{post.title}</h3>
-              <p>{post.content.substring(0, 100)}...</p>
-              <Link to={`/posts/${post._id}`} className="read-more">Read More</Link>
-            </div>
-          ))}
+  <div className="content">
+    <div className="post-list">
+      {posts.map(post => (
+        <div key={post._id} className="post-card">
+          <h3>{post.title}</h3>
+          <p>{post.content.substring(0, 100)}...</p>
+          <Link to={`/posts/${post._id}`} className="read-more">Read More</Link>
         </div>
-      </div>
+      ))}
     </div>
+  </div>
+</div>
+
   );
 };
 
