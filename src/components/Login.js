@@ -13,7 +13,7 @@ const Login = ({ setToken }) => {
     e.preventDefault();
     setError(''); // Clear any previous errors
     try {
-      const response = await axios.post('blog-app-frontend-vert.vercel.app/api/auth/login', { username, password });
+      const response = await axios.post('https://blog-app-iota-silk.vercel.app/api/auth/login', { username, password });
       setToken(response.data.token); // Store token in state or localStorage
       navigate('/'); // Redirect to home page or another page
     } catch (error) {
