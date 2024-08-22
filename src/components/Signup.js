@@ -13,7 +13,7 @@ const Signup = () => {
     e.preventDefault();
     setError(''); // Clear any previous errors
     try {
-      await axios.post('blog-app-frontend-vert.vercel.app/api/auth/register', { username, password });
+      await axios.post('https://blog-app-iota-silk.vercel.app/api/auth/register', { username, password });
       navigate('/login'); // Redirect to login page after successful registration
     } catch (error) {
       console.error('Failed to register', error);
