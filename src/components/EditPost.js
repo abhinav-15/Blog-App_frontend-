@@ -14,7 +14,7 @@ const EditPost = ({ token }) => {
   useEffect(() => {
     const fetchPost = async () => {
       try {
-        const response = await axios.get(`blog-app-frontend-vert.vercel.app/posts/${id}`);
+        const response = await axios.get(`https://blog-app-iota-silk.vercel.app/posts/${id}`);
         setTitle(response.data.title);
         setContent(response.data.content);
       } catch (error) {
