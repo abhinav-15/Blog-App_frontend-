@@ -2,7 +2,7 @@
 
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5001/api/posts'; // Your backend API URL
+const API_URL = 'blog-app-iota-silk.vercel.app/api/posts'; // Your backend API URL
 
 // Fetch all posts
 export const fetchPosts = async () => {
